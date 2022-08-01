@@ -18,7 +18,6 @@ model User {
   status     Boolean? @default(false)
   password   String
   created_at DateTime @default(now()) @db.Timestamptz(6)
-  posts      Post[]
 }
 
 //model Post {

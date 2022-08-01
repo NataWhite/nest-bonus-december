@@ -1,0 +1,266 @@
+{
+	"info": {
+		"_postman_id": "ed91952d-d6f1-4381-bc6a-b35c6da448bb",
+		"name": "December-2021",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "users",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"user-id\", pm.response.json().id);",
+							"pm.test(\"Status code is 201\", () => {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"pm.test(\"Correct response value\", () => {",
+							"    const jsonData = pm.response.json();",
+							"    pm.expect(jsonData.id).to.be.a('number');",
+							"    pm.expect(jsonData.username).to.be.a('string');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"Tanay\",\n    \"email\": \"tttttt@gmail.com\",\n    \"age\": 35,\n    \"password\": \"123456qwerty\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "users",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"Tanay\",\n    \"email\": \"tttttt@gmail.com\",\n    \"age\": 35,\n    \"password\": \"123456qwerty\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "144"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"90-i240qTjOz/XLR+M1Y/LdkRiaMiI\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 01 Aug 2022 18:12:59 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 5,\n    \"username\": \"Tanay\",\n    \"email\": \"tttttt@gmail.com\",\n    \"age\": 35,\n    \"status\": false,\n    \"password\": \"123456qwerty\",\n    \"created_at\": \"2022-08-01T18:12:59.354Z\"\n}"
+				}
+			]
+		},
+		{
+			"name": "users",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"setTimeout(function() {",
+							" console.log('waiting')",
+							"}, 5000)"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Correct response value\", () => {",
+							"    const jsonData = pm.response.json();",
+							"    pm.expect(jsonData[0].id).to.be.a('string');",
+							"    pm.expect(jsonData[0].username).to.be.a('string');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "users",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1155"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"483-L8FEtcXbFP03j9PjUnkUzQeORpQ\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 01 Aug 2022 18:31:29 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"username\": \"Vitya\",\n        \"email\": \"example@gmail.com\",\n        \"age\": 30,\n        \"status\": true,\n        \"password\": \"123456qwerty\",\n        \"created_at\": \"2022-07-27T18:25:06.095Z\"\n    },\n    {\n        \"id\": 2,\n        \"username\": \"Katya\",\n        \"email\": \"user@gmail.com\",\n        \"age\": 35,\n        \"status\": true,\n        \"password\": \"123456qwerty\",\n        \"created_at\": \"2022-07-27T18:27:25.825Z\"\n    },\n    {\n        \"id\": 3,\n        \"username\": \"Tanay\",\n        \"email\": \"user@gmail.com\",\n        \"age\": 35,\n        \"status\": true,\n        \"password\": \"123456qwerty\",\n        \"created_at\": \"2022-07-27T18:43:45.213Z\"\n    },\n    {\n        \"id\": 4,\n        \"username\": \"Tanay\",\n        \"email\": \"tttttt@gmail.com\",\n        \"age\": 35,\n        \"status\": false,\n        \"password\": \"123456qwerty\",\n        \"created_at\": \"2022-07-27T18:47:06.312Z\"\n    },\n    {\n        \"id\": 5,\n        \"username\": \"Tanay\",\n        \"email\": \"tttttt@gmail.com\",\n        \"age\": 35,\n        \"status\": false,\n        \"password\": \"123456qwerty\",\n        \"created_at\": \"2022-08-01T18:12:59.354Z\"\n    },\n    {\n        \"id\": 6,\n        \"username\": \"Tanay\",\n        \"email\": \"tttttt@gmail.com\",\n        \"age\": 35,\n        \"status\": false,\n        \"password\": \"123456qwerty\",\n        \"created_at\": \"2022-08-01T18:23:24.794Z\"\n    },\n    {\n        \"id\": 7,\n        \"username\": \"Tanay\",\n        \"email\": \"tttttt@gmail.com\",\n        \"age\": 35,\n        \"status\": false,\n        \"password\": \"123456qwerty\",\n        \"created_at\": \"2022-08-01T18:24:27.890Z\"\n    },\n    {\n        \"id\": 8,\n        \"username\": \"Tanay\",\n        \"email\": \"tttttt@gmail.com\",\n        \"age\": 35,\n        \"status\": false,\n        \"password\": \"123456qwerty\",\n        \"created_at\": \"2022-08-01T18:29:24.819Z\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "users/:id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const id = pm.environment.get(\"user-id\");",
+							"pm.test(\"Correct response value\", () => {",
+							"    const jsonData = pm.response.json();",
+							"    pm.expect(jsonData.id).to.be.a('number');",
+							"    pm.expect(jsonData.id).to.equal(id);",
+							"    pm.expect(jsonData.username).to.be.a('string');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"setTimeout(function() {",
+							" console.log('waiting')",
+							"}, 3000)"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/users/{{user-id}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"{{user-id}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
